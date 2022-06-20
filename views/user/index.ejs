@@ -1,0 +1,45 @@
+<%- include('../includes/header'); %>
+
+<div class="container">
+  <h2>
+    All Post
+  </h2>
+  <a href="/users/create">
+    <button class="btn btn-primary">
+      Create User
+    </button>
+  </a>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nama</th>
+        <th>email</th>
+        <th>image</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(user => { %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.image %></td>
+        <td>
+          <a href="/users/<%= user.id %>/edit">
+            <button class="btn btn-primary">
+              Edit
+            </button>
+          </a>
+          <a href="/users/<%= user.id %>/delete">
+            <button class="btn btn-danger">
+              Delete
+            </button>
+          </a>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+ </table> </div> <%- include('../includes/footer'); %>

@@ -1,0 +1,20 @@
+<%- include('../includes/header'); %>
+
+<div class="container">
+    <h2>Edit User</h2>
+    <form action="/users/<%= users.id %>/update" method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp"
+                value="<%= users.name %>">
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="<%= users.email %>">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+</div>
+
+<%- include('../includes/footer'); %>

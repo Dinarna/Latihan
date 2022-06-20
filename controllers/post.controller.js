@@ -1,6 +1,5 @@
 const Post = require('../models/Post')
 
-
 module.exports = {
   index: async (req, res) => {
     const posts = await Post.findAll();
@@ -9,7 +8,9 @@ module.exports = {
     });
   },
   create: async (req, res) => {
+    const posts = await  Post.query("SELECT * FROM posts")
     return res.render('post/create');
+
   },
   edit: async (req, res) => {
     const posts = await Post.findByPk(req.params.id);
