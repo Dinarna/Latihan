@@ -1,15 +1,19 @@
 const Post = require('../models/Post')
+const User = require('../models/User')
 
 module.exports = {
   index: async (req, res) => {
-    const posts = await Post.findAll();
+    const posts = await Post.findAll({include: [{model: User}]});
+    console.log(posts)
     return res.render('post/index', {
       posts
     });
   },
   create: async (req, res) => {
-    const posts = await  Post.query("SELECT * FROM posts")
-    return res.render('post/create');
+    const users = await User.findAll();
+    return res.render('post/create', {
+      users
+    });
 
   },
   edit: async (req, res) => {
@@ -22,6 +26,7 @@ module.exports = {
     await Post.create({
       title: req.body.title,
       content: req.body.content,
+      id_user: req.body.id_user
     });
     return res.redirect('/posts');
   },

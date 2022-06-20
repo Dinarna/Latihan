@@ -16,7 +16,9 @@
         <th>#</th>
         <th>Title</th>
         <th>Content</th>
+        <th>Author</th>
         <th>Action</th>
+
       </tr>
     </thead>
     <tbody>
@@ -25,6 +27,7 @@
         <td><%= post.id %></td>
         <td><%= post.title %></td>
         <td><%= post.content %></td>
+        <td></td>
         <td>
           <a href="/posts/<%= post.id %>/edit">
             <button class="btn btn-primary">

@@ -11,6 +11,14 @@
       <label for="content" class="form-label">Content</label>
       <input type="text" class="form-control" id="content" name="content">
     </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">User</label>
+      <select name="id_user" id="id_user">
+        <% users.forEach(user => { %>
+          <option value="<%= user.id%>"><%=user.name%></option>
+        <% }); %>
+      </select>
+    </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
